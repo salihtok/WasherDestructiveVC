@@ -8,6 +8,7 @@ public class deneme : MonoBehaviour
     void Start()
     {
         // selam veriyorum.
+        // bende alıyorum. yani klasik insan iletişimi.
     }
 
     // Update is called once per frame
