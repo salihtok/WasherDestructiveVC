@@ -21,6 +21,8 @@ public class ProjectileGun : MonoBehaviour
 
     [SerializeField] private float thrownObjectMass;
     [SerializeField] private GameObject thrownObjectPrefab;
+
+    [SerializeField] private GameObject lineRenderedOrigin;
     
     
     // gun behavior
@@ -30,9 +32,11 @@ public class ProjectileGun : MonoBehaviour
     [SerializeField] [Range(1, 3)] private float dischargeRatio;
     [SerializeField] private float chargePercent;
 
+    public Vector3 x;
     void Start()
     {
         chargePercent = 0;
+        gunNozzle = GameObject.FindWithTag("nozzle");
     }
 
     void Update()
@@ -40,6 +44,7 @@ public class ProjectileGun : MonoBehaviour
         Inputs();
         GunChargeLogic();
         DrawProjection();
+        x = gunNozzle.transform.position;
     }
 
     private void DrawProjection()
@@ -47,7 +52,7 @@ public class ProjectileGun : MonoBehaviour
         lineRenderer.enabled = true;
         lineRenderer.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;
         Vector3 startPosition = gunNozzle.transform.position;
-        Vector3 startVelocity = throwStrength * camera.transform.forward / thrownObjectMass;
+        Vector3 startVelocity = throwStrength * gunNozzle.transform.forward/ thrownObjectMass;
         int i = 0;
         lineRenderer.SetPosition(i, startPosition);
         for (float time = 0; time < linePoints; time += timeBetweenPoints)

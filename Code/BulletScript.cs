@@ -14,6 +14,7 @@ public class BulletScript : MonoBehaviour
         gunNozzle = GameObject.FindWithTag("nozzle");
         bulletRb = GetComponent<Rigidbody>();
         bulletRb.AddForce(gunNozzle.transform.forward * speed, ForceMode.Impulse);
+        
     }
 
    
