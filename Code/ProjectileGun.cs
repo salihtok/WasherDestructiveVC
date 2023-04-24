@@ -35,6 +35,11 @@ public class ProjectileGun : MonoBehaviour
     public Vector3 x;
     void Start()
     {
+        StartStuff();
+    }
+
+    void StartStuff()
+    {
         chargePercent = 0;
         gunNozzle = GameObject.FindWithTag("nozzle");
     }
