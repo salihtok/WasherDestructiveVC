@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class ProjectileGun : MonoBehaviour
 {
@@ -31,6 +33,8 @@ public class ProjectileGun : MonoBehaviour
     [SerializeField] private bool readyToFire;
     [SerializeField] [Range(1, 3)] private float dischargeRatio;
     [SerializeField] private float chargePercent;
+    
+    public  Slider gunPressureSlide;
 
     public Vector3 x;
     void Start()
@@ -47,9 +51,14 @@ public class ProjectileGun : MonoBehaviour
     void Update()
     {
         Inputs();
-        GunChargeLogic();
+        
         DrawProjection();
         x = gunNozzle.transform.position;
+    }
+
+    private void FixedUpdate()
+    {
+        GunChargeLogic();
     }
 
     private void DrawProjection()
@@ -106,13 +115,14 @@ public class ProjectileGun : MonoBehaviour
 
     void GunChargeLogic()
     {
+        gunPressureSlide.value = chargePercent / 100;
         
-        if (chargePercent >= 10)
+        if (chargePercent >= 100)
         {
-            chargePercent = 10;
+            chargePercent = 100;
             readyToFire = true;
         }
         if (chargePercent <= 0) chargePercent = 0;
-        if (chargePercent < 7) readyToFire = false;
+        if (chargePercent < 70) readyToFire = false;
     }
 }

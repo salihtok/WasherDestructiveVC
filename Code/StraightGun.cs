@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Slider = UnityEngine.UIElements.Slider;
 
 public class StraightGun : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public  Slider gunPressureSlide;
     [SerializeField] private Camera camera;
     [SerializeField] [Range(1, 100)] private float throwStrength = 10f;
     [SerializeField] private GameObject gunNozzle;
@@ -14,6 +16,9 @@ public class StraightGun : MonoBehaviour
     [SerializeField] private bool readyToFire;
     [SerializeField] [Range(1, 3)] private float dischargeRatio;
     [SerializeField] private float chargePercent;
+
+   
+    
     void Start()
     {
       StartStuff();  
@@ -21,7 +26,7 @@ public class StraightGun : MonoBehaviour
     void StartStuff()
     {
         chargePercent = 0;
-        Cursor.visible = false; 
+        Cursor.visible = false;
       
     }
     // Update is called once per frame
@@ -60,5 +65,7 @@ public class StraightGun : MonoBehaviour
         }
         if (chargePercent <= 0) chargePercent = 0;
         if (chargePercent < 7) readyToFire = false;
+
+        gunPressureSlide.value = chargePercent;
     }
 }
