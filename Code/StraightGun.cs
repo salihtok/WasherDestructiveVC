@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Slider = UnityEngine.UIElements.Slider;
+//using Slider = UnityEngine.UIElements.Slider;
 
 public class StraightGun : MonoBehaviour
 {
-    public  Slider gunPressureSlide;
+    [SerializeField] public Slider gunPressureSlide;
+    
     [SerializeField] private Camera camera;
     [SerializeField] [Range(1, 100)] private float throwStrength = 10f;
     [SerializeField] private GameObject gunNozzle;
