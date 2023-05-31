@@ -37,6 +37,8 @@ public class ProjectileGun : MonoBehaviour
     public  Slider gunPressureSlide;
 
     public Vector3 x;
+
+   
     void Start()
     {
         StartStuff();
@@ -46,6 +48,7 @@ public class ProjectileGun : MonoBehaviour
     {
         chargePercent = 0;
         gunNozzle = GameObject.FindWithTag("nozzle");
+        
     }
 
     void Update()

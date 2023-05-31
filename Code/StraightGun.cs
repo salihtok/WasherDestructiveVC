@@ -17,6 +17,7 @@ public class StraightGun : MonoBehaviour
     [SerializeField] private bool readyToFire;
     [SerializeField] [Range(1, 3)] private float dischargeRatio;
     [SerializeField] private float chargePercent;
+  
 
    
     
@@ -28,7 +29,7 @@ public class StraightGun : MonoBehaviour
     {
         chargePercent = 0;
         Cursor.visible = false;
-      
+       
     }
     // Update is called once per frame
     void Update()

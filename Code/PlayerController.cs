@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] [Range(1,5)] private float mouseSensitivity;
     [SerializeField] [Range(1, 5)] private float movementSpeed;
+    private Rigidbody playerRb;
+    [SerializeField] private float jumpForce;
+    private bool onGround;
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
     }
 
   
@@ -19,9 +22,26 @@ public class PlayerController : MonoBehaviour
         LateralRotation();
         VerticalRotation();
         Movement();
+        Jumping();
     }
 
-    
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
+        
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            onGround = false;
+        }
+    }
+
 
     void LateralRotation()
     {
@@ -35,6 +55,15 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        transform.Translate(Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime, 0, Input.GetAxis("Vertical") * movementSpeed*Time.deltaTime);
+      transform.Translate(Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime, 0, Input.GetAxis("Vertical") * movementSpeed*Time.deltaTime);
+     
+    }
+
+    void Jumping()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        {
+            gameObject.transform.position.y = 1;
+        }
     }
 }

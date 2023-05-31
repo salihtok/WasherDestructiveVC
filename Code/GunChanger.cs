@@ -11,10 +11,18 @@ public class GunChanger : MonoBehaviour
     public float mouseScrollY;
     public bool one;
     public bool two;
+    [SerializeField] private GameObject gunsight;
     void Start()
+    {
+        StartStuff();
+    }
+
+    private void StartStuff()
     {
         one = true;
         two = false;
+        gunsight = GameObject.FindWithTag("gunsight");
+        gunsight.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,6 +30,7 @@ public class GunChanger : MonoBehaviour
     {
      MouseController();   
      GunController();
+     GunsightController();
     }
 
     void MouseController()
@@ -53,5 +62,10 @@ public class GunChanger : MonoBehaviour
             gunTwo.SetActive(true);
         }
     }
-    
+
+    void GunsightController()
+    {
+        if (one) gunsight.SetActive(false);
+        if(two) gunsight.SetActive(true);
+    }
 }

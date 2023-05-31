@@ -303,6 +303,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.9839547, z: 10}
   m_Center: {x: 0, y: -0.49197736, z: 0}
+--- !u!1 &1160654294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8977724146520080348, guid: f31ed88d749f3694da4bc3db6184a369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8977724146527121261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1160654301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160654294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.30856752, z: 1}
+  m_Center: {x: 0, y: -0.84571624, z: 0}
 --- !u!1 &1932740873
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,12 +453,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1158112730, guid: f31ed88d749f3694da4bc3db6184a369, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 372553c76ba2cdd43bbbf2c1b5a77b25, type: 2}
+    - target: {fileID: 1158112730, guid: f31ed88d749f3694da4bc3db6184a369, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
       value: 0.008131973
       objectReference: {fileID: 0}
     - target: {fileID: 1158112730, guid: f31ed88d749f3694da4bc3db6184a369, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.15534005
+      value: 0.03883156
       objectReference: {fileID: 0}
     - target: {fileID: 1158112731, guid: f31ed88d749f3694da4bc3db6184a369, type: 3}
       propertyPath: throwStrength
@@ -448,6 +471,21 @@ PrefabInstance:
     - target: {fileID: 1158112731, guid: f31ed88d749f3694da4bc3db6184a369, type: 3}
       propertyPath: thrownObjectMass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977724146520080346, guid: f31ed88d749f3694da4bc3db6184a369,
+        type: 3}
+      propertyPath: jumpForce
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977724146520080346, guid: f31ed88d749f3694da4bc3db6184a369,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977724146520080346, guid: f31ed88d749f3694da4bc3db6184a369,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8977724146520080347, guid: f31ed88d749f3694da4bc3db6184a369,
         type: 3}
@@ -508,6 +546,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977724146520080351, guid: f31ed88d749f3694da4bc3db6184a369,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977724146650069496, guid: f31ed88d749f3694da4bc3db6184a369,
+        type: 3}
+      propertyPath: m_TagString
+      value: gunsight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977724147438268836, guid: f31ed88d749f3694da4bc3db6184a369,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9049190011161998859, guid: f31ed88d749f3694da4bc3db6184a369,
         type: 3}
